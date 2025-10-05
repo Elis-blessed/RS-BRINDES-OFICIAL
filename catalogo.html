@@ -67,6 +67,21 @@ function buildCategories(items){
 }
 
 $search.addEventListener('input', () => { state.q = $search.value.toLowerCase(); applyFilters(); });
+  // Se vier ?cat= no link, já seleciona a categoria ao carregar
+const params = new URLSearchParams(location.search);
+const pre = params.get('cat');
+if (pre) {
+  // espera o select existir e, se houver a opção, seleciona
+  const trySelect = () => {
+    const opt = Array.from($category.options).find(o => o.value === pre);
+    if (opt) {
+      $category.value = pre;
+      state.cat = pre;
+      applyFilters();
+    }
+  };
+  trySelect();
+}
 
 function applyFilters(){
   const { products, q, cat } = state;
