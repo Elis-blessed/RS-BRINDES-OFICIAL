@@ -8,83 +8,45 @@
 </head>
 <body>
 
-  <!-- Cabeçalho -->
+  <!-- Header -->
   <header class="header gradient">
     <div class="container nav">
       <a href="index.html" class="brand">
-        <div class="logo">RS</div>
-        <strong>RS Brindes</strong>
+        <img src="public/img/logo.png" alt="RS Brindes" class="logo">
+        <span>RS Brindes</span>
       </a>
       <nav class="menu">
         <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
         <a href="catalogo.html">Catálogo</a>
-        <a href="sobre.html">Sobre Nós</a>
-        <a href="orcamento.html">Orçamento</a>
         <a href="blog.html" class="active">Blog</a>
         <a href="contato.html">Contato</a>
       </nav>
     </div>
   </header>
 
-  <!-- Seção Título -->
   <section class="section">
     <div class="container">
       <h1>Blog RS Brindes</h1>
-      <p>Inspire-se com dicas, novidades e ideias criativas para personalizar seus brindes e surpreender seus clientes.</p>
+      <p>Confira dicas, novidades e inspirações para seus brindes promocionais!</p>
+
+      <article class="card card-pad">
+        <h2>🎁 5 Ideias Criativas de Brindes para Eventos</h2>
+        <p>Descubra opções modernas e práticas que encantam clientes e parceiros. Ideal para feiras, convenções e campanhas promocionais.</p>
+      </article>
+
+      <article class="card card-pad">
+        <h2>⚡ Como Personalizar Brindes em Grande Escala</h2>
+        <p>Veja como nossa produção ágil garante entregas em até 72h, mesmo para grandes quantidades!</p>
+      </article>
     </div>
   </section>
 
-  <!-- Posts -->
-  <section class="section">
-    <div class="container grid products">
-
-      <!-- Post 1 -->
-      <article class="card">
-        <img class="product" src="public/img/destaque/slide1.jpg" alt="Post 1">
-        <div class="card-pad">
-          <h2 class="title">🎁 5 Ideias de Brindes Corporativos que Encantam</h2>
-          <p class="cat">Publicado em 05/10/2025</p>
-          <p>Descubra opções criativas de brindes para fortalecer a marca da sua empresa e surpreender clientes e colaboradores. Personalização e entrega rápida em até 72 horas!</p>
-          <a href="#" class="btn btn-primary" style="margin-top:8px;">Ler Mais</a>
-        </div>
-      </article>
-
-      <!-- Post 2 -->
-      <article class="card">
-        <img class="product" src="public/img/destaque/slide2.jpg" alt="Post 2">
-        <div class="card-pad">
-          <h2 class="title">✨ Como Escolher o Brinde Ideal para sua Campanha</h2>
-          <p class="cat">Publicado em 28/09/2025</p>
-          <p>Selecionar o brinde certo pode fazer toda a diferença em uma ação promocional. Veja nossas dicas para acertar em cheio e causar impacto positivo.</p>
-          <a href="#" class="btn btn-primary" style="margin-top:8px;">Ler Mais</a>
-        </div>
-      </article>
-
-      <!-- Post 3 -->
-      <article class="card">
-        <img class="product" src="public/img/destaque/slide3.jpg" alt="Post 3">
-        <div class="card-pad">
-          <h2 class="title">🚀 Entregas em até 72 horas: Agilidade que faz diferença</h2>
-          <p class="cat">Publicado em 15/09/2025</p>
-          <p>Na RS Brindes, sabemos que tempo é essencial. Por isso, garantimos entregas rápidas para que você tenha seus brindes personalizados no momento certo.</p>
-          <a href="#" class="btn btn-primary" style="margin-top:8px;">Ler Mais</a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- Rodapé -->
   <footer class="footer">
     <div class="container foot">
-      <div>© <span id="year"></span> RS Brindes - Todos os direitos reservados.</div>
-      <div>Entrega em até 72h 🚀</div>
+      <p>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</p>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 
 </body>
 </html>
