@@ -1,107 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Catálogo - RS Brindes</title>
-  <link rel="stylesheet" href="public/style.css"/>
+  <link rel="stylesheet" href="public/style.css">
 </head>
 <body>
 
-<header class="header gradient">
-  <nav class="nav container">
-    <div class="brand"><div class="logo">RS</div><span>RS BRINDES</span></div>
-    <div class="menu">
-      <a href="index.html">Home</a>
-      <a href="sobre.html">Sobre Nós</a>
-      <a href="catalogo.html" class="active">Catálogo</a>
-      <a href="orcamento.html">Orçamento</a>
-      <a href="contato.html">Contato</a>
-      <a href="blog.html">Blog</a>
+  <!-- Header -->
+  <header class="header gradient">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="public/img/logo.png" alt="RS Brindes" class="logo">
+        <span>RS Brindes</span>
+      </a>
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="catalogo.html" class="active">Catálogo</a>
+        <a href="blog.html">Blog</a>
+        <a href="contato.html">Contato</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<section class="section container">
-  <h1>Catálogo de Produtos</h1>
-  <div class="toolbar">
-    <input type="text" id="search" class="search" placeholder="Pesquisar produto...">
-    <select id="category"></select>
-  </div>
-  <div class="grid products" id="grid"></div>
-</section>
-
-<footer class="footer">
-  <div class="container foot">
-    <span>© <span id="year"></span> RS Brindes</span>
-    <span>Campinas/SP • WhatsApp: (19) 98185-9815 • rsbrindes2020@gmail.com</span>
-  </div>
-</footer>
-
-<script>
-const state = { products: [], filtered: [], q: '', cat: 'Todas' };
-const $grid = document.getElementById('grid');
-const $search = document.getElementById('search');
-const $category = document.getElementById('category');
-
-fetch('data/products.json')
-  .then(r => r.json())
-  .then(items => {
-    state.products = items;
-    buildCategories(items);
-    // pré-seleciona categoria se vier ?cat=
-    const params = new URLSearchParams(location.search);
-    const pre = params.get('cat');
-    if (pre) { state.cat = pre; }
-    applyFilters();
-  });
-
-function buildCategories(items){
-  const cats = Array.from(new Set(items.map(i => i.category))).sort();
-  $category.innerHTML = '';
-  const optAll = document.createElement('option');
-  optAll.value = 'Todas'; optAll.textContent = 'Todas';
-  $category.appendChild(optAll);
-  cats.forEach(c => {
-    const o = document.createElement('option');
-    o.value = c; o.textContent = c;
-    $category.appendChild(o);
-  });
-  $category.value = state.cat;
-  $category.addEventListener('change', () => { state.cat = $category.value; applyFilters(); });
-}
-
-$search.addEventListener('input', () => { state.q = $search.value.toLowerCase(); applyFilters(); });
-
-function applyFilters(){
-  const { products, q, cat } = state;
-  state.filtered = products.filter(p =>
-    (cat === 'Todas' || p.category === cat) &&
-    (q === '' || p.name.toLowerCase().includes(q))
-  );
-  render();
-}
-
-function render(){
-  if (state.filtered.length === 0){
-    $grid.innerHTML = '<div class="card card-pad" style="grid-column:1/-1;text-align:center">Nenhum item encontrado</div>';
-    return;
-  }
-  $grid.innerHTML = state.filtered.map(p => `
-    <div class="card">
-      <img class="product" src="${p.image}" alt="${p.name}" onerror="this.style.display='none'"/>
-      <div class="card-pad">
-        <div class="title">${p.name}</div>
-        <div class="cat">${p.category}</div>
-        <div style="margin-top:8px">
-          <a class="btn btn-primary" href="orcamento.html">Solicitar Orçamento</a>
-        </div>
+  <section class="section">
+    <div class="container">
+      <h1>Catálogo de Produtos</h1>
+      <div class="toolbar">
+        <input type="text" id="search" class="search" placeholder="Pesquisar produto...">
+        <select id="category"></select>
       </div>
+      <div id="grid" class="grid products"></div>
     </div>
-  `).join('');
-}
-</script>
+  </section>
 
-<script src="public/script.js?v=3"></script>
+  <footer class="footer">
+    <div class="container foot">
+      <p>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="public/script.js"></script>
 </body>
 </html>
