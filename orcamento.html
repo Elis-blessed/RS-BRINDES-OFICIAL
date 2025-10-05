@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitar Orçamento - RS Brindes</title>
+  <link rel="stylesheet" href="public/style.css">
+</head>
+<body>
+
+<header class="header gradient">
+  <nav class="nav container">
+    <div class="brand"><div class="logo">RS</div><span>RS BRINDES</span></div>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="sobre.html">Sobre Nós</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="orcamento.html" class="active">Orçamento</a>
+      <a href="contato.html">Contato</a>
+      <a href="blog.html">Blog</a>
+    </div>
+  </nav>
+</header>
+
+<section class="section container">
+  <h1>Solicitar Orçamento</h1>
+  <form class="grid" style="max-width:500px;margin:auto;">
+    <input type="text" placeholder="Nome completo" required>
+    <input type="email" placeholder="E-mail" required>
+    <input type="tel" placeholder="Telefone/WhatsApp" required>
+    <textarea placeholder="Descreva o produto ou quantidade desejada" rows="4" required></textarea>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <div class="container foot">
+    <span>© <span id="year"></span> RS Brindes</span>
+  </div>
+</footer>
+
+<script src="public/script.js"></script>
+</body>
+</html>
