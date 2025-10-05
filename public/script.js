@@ -1,9 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Atualiza o ano no rodapé (se existir)
+  // Ano no rodapé
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Monta os destaques na home se a seção existir
+  // Slider simples (usa public/img/destaque/slide1.jpg, slide2.jpg, slide3.jpg)
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dotsWrap = document.getElementById('slider-dots');
+  if (slides.length && dotsWrap) {
+    slides.forEach((_,i)=>{
+      const b = document.createElement('button');
+      if (i===0) b.classList.add('active');
+      b.addEventListener('click', ()=> go(i));
+      dotsWrap.appendChild(b);
+    });
+    let idx = 0;
+    function go(i){
+      slides[idx].classList.remove('active');
+      dotsWrap.children[idx].classList.remove('active');
+      idx = i;
+      slides[idx].classList.add('active');
+      dotsWrap.children[idx].classList.add('active');
+    }
+    setInterval(()=> go((idx+1)%slides.length), 4000);
+  }
+
+  // Monta os destaques na Home (featured:true em data/products.json)
   const featuredGrid = document.getElementById('featured-grid');
   if (featuredGrid) {
     fetch('data/products.json')
@@ -27,7 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
           </a>
         `).join('');
       })
-      .catch(() => {
+      .catch(err => {
+        console.error('Erro ao carregar destaques:', err);
         featuredGrid.innerHTML = '<div class="card card-pad" style="grid-column:1/-1;text-align:center">Não foi possível carregar os destaques.</div>';
       });
   }
