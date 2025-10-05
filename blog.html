@@ -1,52 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog - RS Brindes</title>
-  <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="public/style.css?v=7"/>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header gradient">
-    <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="public/img/logo.png" alt="RS Brindes" class="logo">
-        <span>RS Brindes</span>
-      </a>
-      <nav class="menu">
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="blog.html" class="active">Blog</a>
-        <a href="contato.html">Contato</a>
-      </nav>
+<header class="header gradient">
+  <nav class="nav container">
+    <a class="brand" href="index.html">
+      <img src="public/img/logo/logo.png" alt="RS Brindes" class="logo-img"/>
+      <span class="brand-name">RS Brindes</span>
+    </a>
+    <div class="menu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="orcamento.html">Orçamento</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="contato.html">Contato</a>
     </div>
-  </header>
+  </nav>
+</header>
 
-  <section class="section">
-    <div class="container">
-      <h1>Blog RS Brindes</h1>
-      <p>Confira dicas, novidades e inspirações para seus brindes promocionais!</p>
+<section class="section container">
+  <h1>Blog RS Brindes</h1>
+  <p>Novidades, ideias e tendências de brindes corporativos.</p>
 
-      <article class="card card-pad">
-        <h2>🎁 5 Ideias Criativas de Brindes para Eventos</h2>
-        <p>Descubra opções modernas e práticas que encantam clientes e parceiros. Ideal para feiras, convenções e campanhas promocionais.</p>
-      </article>
+  <div class="grid products">
+    <article class="card">
+      <img class="product" src="public/img/destaque/slide1.jpg" alt="Ideias de brindes corporativos">
+      <div class="card-pad">
+        <h2 class="title">🎁 5 Ideias de Brindes para Eventos Corporativos</h2>
+        <p class="cat">Postagem de exemplo</p>
+        <p>Descubra brindes que geram impacto real em feiras e convenções. Personalização e agilidade para sua marca.</p>
+        <a class="btn btn-primary" href="catalogo.html">Ver Catálogo</a>
+      </div>
+    </article>
 
-      <article class="card card-pad">
-        <h2>⚡ Como Personalizar Brindes em Grande Escala</h2>
-        <p>Veja como nossa produção ágil garante entregas em até 72h, mesmo para grandes quantidades!</p>
-      </article>
-    </div>
-  </section>
+    <article class="card">
+      <img class="product" src="public/img/destaque/slide2.jpg" alt="Entrega rápida">
+      <div class="card-pad">
+        <h2 class="title">🚀 Como garantimos entrega em até 72h</h2>
+        <p class="cat">Postagem de exemplo</p>
+        <p>Processos otimizados, equipe dedicada e parceiros confiáveis. Entenda nosso fluxo de produção.</p>
+        <a class="btn btn-primary" href="orcamento.html">Pedir Orçamento</a>
+      </div>
+    </article>
 
-  <footer class="footer">
-    <div class="container foot">
-      <p>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</p>
-    </div>
-  </footer>
+    <article class="card">
+      <img class="product" src="public/img/destaque/slide3.jpg" alt="Tendências 2025">
+      <div class="card-pad">
+        <h2 class="title">✨ Tendências em Brindes Personalizados (2025)</h2>
+        <p class="cat">Postagem de exemplo</p>
+        <p>Materiais sustentáveis, tecnologia útil e kits personalizados: o que está em alta para presentear bem.</p>
+        <a class="btn btn-primary" href="catalogo.html">Explorar Tendências</a>
+      </div>
+    </article>
+  </div>
+</section>
 
+<footer class="footer">
+  <div class="container foot">
+    <span>© <span id="year"></span> RS Brindes</span>
+    <span>Entrega em até 72h 🚚</span>
+  </div>
+</footer>
+
+<script src="public/script.js?v=7"></script>
 </body>
 </html>
