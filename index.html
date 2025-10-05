@@ -1,101 +1,64 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>RS Brindes - Brindes Personalizados</title>
-  <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="public/style.css" />
 </head>
 <body>
 
-  <!-- HEADER -->
+  <!-- Header -->
   <header class="header gradient">
     <div class="container nav">
-      <div class="brand">
-        <div class="logo">RS</div>
-        <strong>RS Brindes</strong>
-      </div>
+      <a href="index.html" class="brand">
+        <img src="public/img/logo.png" alt="RS Brindes" class="logo">
+        <span>RS Brindes</span>
+      </a>
       <nav class="menu">
         <a href="index.html" class="active">Início</a>
         <a href="sobre.html">Sobre</a>
         <a href="catalogo.html">Catálogo</a>
-        <a href="orcamento.html">Orçamento</a>
         <a href="blog.html">Blog</a>
         <a href="contato.html">Contato</a>
       </nav>
     </div>
   </header>
 
-  <!-- SLIDER -->
+  <!-- Banner -->
+  <section class="hero gradient">
+    <div class="container">
+      <h1>Brindes Personalizados para sua Empresa</h1>
+      <p>Qualidade, agilidade e criatividade para surpreender seus clientes.</p>
+      <p class="entrega-msg">🚚 Entregamos seus brindes personalizados em até <strong>72h</strong>!</p>
+    </div>
+  </section>
+
+  <!-- Slider -->
   <section class="slider">
     <div class="slides">
-      <div class="slide">
-        <img src="public/img/destaque/slide1.jpg" alt="Banner Institucional RS Brindes">
-      </div>
-      <div class="slide">
-        <img src="public/img/destaque/slide2.jpg" alt="Catálogo RS Brindes">
-      </div>
-      <div class="slide">
-        <img src="public/img/destaque/slide3.jpg" alt="Produtos em Destaque RS Brindes">
-      </div>
+      <img src="public/img/destaque/slide1.jpg" alt="Destaque 1">
+      <img src="public/img/destaque/slide2.jpg" alt="Destaque 2">
+      <img src="public/img/destaque/slide3.jpg" alt="Destaque 3">
     </div>
   </section>
 
-  <!-- MISSÃO VISÃO VALORES -->
-  <section class="section light">
-    <div class="container">
-      <h2 class="center">Missão, Visão e Valores</h2>
-      <div class="mvv-grid">
-        <div>
-          <h3>Missão</h3>
-          <p>Oferecer soluções criativas e personalizadas em brindes, fortalecendo marcas com agilidade e excelência.</p>
-        </div>
-        <div>
-          <h3>Visão</h3>
-          <p>Ser referência nacional em brindes corporativos, reconhecida pela qualidade, rapidez e inovação.</p>
-        </div>
-        <div>
-          <h3>Valores</h3>
-          <ul>
-            <li>Compromisso com o cliente</li>
-            <li>Agilidade e qualidade</li>
-            <li>Inovação constante</li>
-            <li>Transparência e ética</li>
-            <li>Parcerias duradouras</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ENTREGA -->
-  <section class="section gradient center">
-    <div class="container entrega-bloco">
-      <h2>🚚 Entregamos seus brindes personalizados em até 72h!</h2>
-      <p>Produção ágil e eficiente em todo o Brasil.</p>
-      <a href="catalogo.html" class="btn btn-light">Ver Catálogo</a>
-    </div>
-  </section>
-
-  <!-- CATEGORIAS DESTAQUE -->
+  <!-- Produtos em destaque -->
   <section class="section">
     <div class="container">
-      <h2 class="center">Destaques do Catálogo</h2>
-      <div id="home-grid" class="grid products"></div>
+      <h2>Produtos em Destaque</h2>
+      <div id="grid" class="grid products"></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container foot">
-      <div>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</div>
-      <div>
-        <a href="https://wa.me/5519981859815" target="_blank">WhatsApp</a> |
-        <a href="mailto:rsbrindes2020@gmail.com">E-mail</a>
-      </div>
+      <p>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</p>
+      <p>📍 Entregamos em todo o Brasil</p>
     </div>
   </footer>
 
-<script src="public/script.js"></script>
+  <script src="public/script.js"></script>
 </body>
 </html>
