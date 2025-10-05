@@ -1,14 +1,8 @@
 [
   {
     "id": 1,
-    "name": "Caneca Exemplo",
-    "category": "Canecas",
-    "image": "public/img/Canecas/caneca1.jpg"
-  },
-  {
-    "id": 2,
-    "name": "Copo Exemplo",
-    "category": "Copos",
-    "image": "public/img/Copos/copo1.jpg"
+    "name": "Bolsa Térmica 12 Litros",
+    "category": "Bolsas térmicas",
+    "image": "public/img/bolsastermicas/Bolsa-Termica-12-Litros-17367d1-1696624134.jpg"
   }
 ]
