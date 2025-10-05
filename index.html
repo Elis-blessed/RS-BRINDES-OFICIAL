@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RS Brindes - Brindes Corporativos</title>
-  <link rel="stylesheet" href="public/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RS Brindes — Brindes Personalizados B2B</title>
+  <link rel="stylesheet" href="public/style.css"/>
+  <meta name="description" content="RS Brindes — 21 anos de mercado, fornecimento B2B de brindes personalizados. Canecas, copos, squeezes, mochilas, canetas e muito mais.">
 </head>
 <body>
 
@@ -22,75 +23,42 @@
   </nav>
 </header>
 
-<section class="hero container">
-  <h1>Brindes Corporativos que Marcam Presença</h1>
-  <p>Há mais de 21 anos oferecendo qualidade, personalização e confiança.</p>
-  <div style="margin-top:20px;">
-    <a href="catalogo.html" class="btn btn-primary">Ver Catálogo</a>
-    <a href="orcamento.html" class="btn btn-light">Solicitar Orçamento</a>
+<section class="container">
+  <div class="hero gradient">
+    <h1>Brindes que geram lembranças e negócios</h1>
+    <p>21 anos de experiência. Agora como fornecedor B2B para sua empresa, com catálogos completos e prazos confiáveis.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <a class="btn btn-primary" href="catalogo.html">Ver Catálogo</a>
+      <a class="btn btn-light" href="orcamento.html">Solicitar Orçamento</a>
+    </div>
   </div>
 </section>
 
+<!-- Slider simples (suba 3 imagens em public/img/destaque/) -->
 <section class="section container">
-  <h2>Produtos em Destaque</h2>
-  <div class="slider">
-    <div class="slide-track">
-      <img src="public/img/Canecas/caneca1.jpg" alt="Caneca destaque">
-      <img src="public/img/Copos/copo1.jpg" alt="Copo destaque">
-    </div>
+  <div class="slider" id="slider">
+    <div class="slide active"><img src="public/img/destaque/slide1.jpg" alt="Destaque 1"></div>
+    <div class="slide"><img src="public/img/destaque/slide2.jpg" alt="Destaque 2"></div>
+    <div class="slide"><img src="public/img/destaque/slide3.jpg" alt="Destaque 3"></div>
+  </div>
+  <div class="slider-dots" id="slider-dots"></div>
+</section>
+
+<!-- Produtos em Destaque (lidos do products.json com featured:true) -->
+<section class="section">
+  <div class="container">
+    <h2 style="color:#0D1B2A;margin-bottom:16px">✨ Produtos em Destaque</h2>
+    <div id="featured-grid" class="grid products"></div>
   </div>
 </section>
 
 <footer class="footer">
   <div class="container foot">
     <span>© <span id="year"></span> RS Brindes</span>
-    <span>Campinas - SP | WhatsApp: (19) 98185-9815 | rsbrindes2020@gmail.com</span>
+    <span>Campinas/SP • WhatsApp: (19) 98185-9815 • rsbrindes2020@gmail.com</span>
   </div>
 </footer>
 
-<script src="public/script.js"></script>
+<script src="public/script.js?v=3"></script>
 </body>
 </html>
-<section class="section">
-  <div class="container">
-    <h2>Produtos em Destaque</h2>
-    <div id="featured" class="grid products"></div>
-  </div>
-</section>
-
-<script>
-fetch('data/featured.json')
-  .then(r => r.json())
-  .then(items => {
-    const el = document.getElementById('featured');
-    el.innerHTML = items.map(p => `
-      <a class="card" href="${p.link}">
-        <img class="product" src="${p.image}" alt="${p.name}" onerror="this.style.display='none'"/>
-        <div class="card-pad">
-          <div class="title">${p.name}</div>
-          <div class="cat">${p.category}</div>
-          <div style="margin-top:8px">
-            <span class="btn btn-primary">Ver no Catálogo</span>
-          </div>
-        </div>
-      </a>
-    `).join('');
-  })
-  .catch(() => {
-    document.getElementById('featured').innerHTML =
-      '<div class="card card-pad" style="grid-column:1/-1">Não foi possível carregar os destaques.</div>';
-  });
-</script>
-<section class="section">
-  <div class="container">
-    <h2 style="color:#0D1B2A;margin-bottom:16px">✨ Produtos em Destaque</h2>
-    <div id="featured-grid" class="grid products"></div>
-  </div>
-</section>
-<section class="section">
-  <div class="container">
-    <h2 style="color:#0D1B2A;margin-bottom:16px">✨ Produtos em Destaque</h2>
-    <div id="featured-grid" class="grid products"></div>
-  </div>
-</section>
-
