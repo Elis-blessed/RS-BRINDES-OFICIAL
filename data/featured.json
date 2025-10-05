@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Bolsa Térmica 12 Litros",
+    "category": "Bolsas térmicas",
+    "image": "public/img/bolsastermicas/Bolsa-Termica-12-Litros-17367d1-1696624134.jpg",
+    "link": "catalogo.html?cat=Bolsas térmicas"
+  },
+  {
+    "name": "Caneca Inox 470ml",
+    "category": "Canecas",
+    "image": "public/img/canecas/Caneca-Inox-470ml-18373-1707503245.jpg",
+    "link": "catalogo.html?cat=Canecas"
+  },
+  {
+    "name": "Copo Plástico 700ml",
+    "category": "Copos",
+    "image": "public/img/copos/Copo-Plastico-700ml-12442-1606151819.jpg",
+    "link": "catalogo.html?cat=Copos"
+  }
+]
