@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo - RS Brindes</title>
-  <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="public/style.css"/>
 </head>
 <body>
 
@@ -34,12 +34,12 @@
 <footer class="footer">
   <div class="container foot">
     <span>© <span id="year"></span> RS Brindes</span>
+    <span>Campinas/SP • WhatsApp: (19) 98185-9815 • rsbrindes2020@gmail.com</span>
   </div>
 </footer>
 
 <script>
 const state = { products: [], filtered: [], q: '', cat: 'Todas' };
-
 const $grid = document.getElementById('grid');
 const $search = document.getElementById('search');
 const $category = document.getElementById('category');
@@ -49,6 +49,10 @@ fetch('data/products.json')
   .then(items => {
     state.products = items;
     buildCategories(items);
+    // pré-seleciona categoria se vier ?cat=
+    const params = new URLSearchParams(location.search);
+    const pre = params.get('cat');
+    if (pre) { state.cat = pre; }
     applyFilters();
   });
 
@@ -63,29 +67,15 @@ function buildCategories(items){
     o.value = c; o.textContent = c;
     $category.appendChild(o);
   });
+  $category.value = state.cat;
   $category.addEventListener('change', () => { state.cat = $category.value; applyFilters(); });
 }
 
 $search.addEventListener('input', () => { state.q = $search.value.toLowerCase(); applyFilters(); });
-  // Se vier ?cat= no link, já seleciona a categoria ao carregar
-const params = new URLSearchParams(location.search);
-const pre = params.get('cat');
-if (pre) {
-  // espera o select existir e, se houver a opção, seleciona
-  const trySelect = () => {
-    const opt = Array.from($category.options).find(o => o.value === pre);
-    if (opt) {
-      $category.value = pre;
-      state.cat = pre;
-      applyFilters();
-    }
-  };
-  trySelect();
-}
 
 function applyFilters(){
   const { products, q, cat } = state;
-  state.filtered = products.filter(p => 
+  state.filtered = products.filter(p =>
     (cat === 'Todas' || p.category === cat) &&
     (q === '' || p.name.toLowerCase().includes(q))
   );
@@ -112,5 +102,6 @@ function render(){
 }
 </script>
 
+<script src="public/script.js?v=3"></script>
 </body>
 </html>
