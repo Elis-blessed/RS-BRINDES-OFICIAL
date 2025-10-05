@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Caneca Exemplo",
+    "category": "Canecas",
+    "image": "public/img/Canecas/caneca1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Copo Exemplo",
+    "category": "Copos",
+    "image": "public/img/Copos/copo1.jpg"
+  }
+]
