@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo - RS Brindes</title>
-  <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="public/style.css?v=7"/>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header gradient">
-    <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="public/img/logo.png" alt="RS Brindes" class="logo">
-        <span>RS Brindes</span>
-      </a>
-      <nav class="menu">
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="catalogo.html" class="active">Catálogo</a>
-        <a href="blog.html">Blog</a>
-        <a href="contato.html">Contato</a>
-      </nav>
+<header class="header gradient">
+  <nav class="nav container">
+    <a class="brand" href="index.html">
+      <img src="public/img/logo/logo.png" alt="RS Brindes" class="logo-img"/>
+      <span class="brand-name">RS Brindes</span>
+    </a>
+    <div class="menu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="catalogo.html" class="active">Catálogo</a>
+      <a href="orcamento.html">Orçamento</a>
+      <a href="blog.html">Blog</a>
+      <a href="contato.html">Contato</a>
     </div>
-  </header>
+  </nav>
+</header>
 
-  <section class="section">
-    <div class="container">
-      <h1>Catálogo de Produtos</h1>
-      <div class="toolbar">
-        <input type="text" id="search" class="search" placeholder="Pesquisar produto...">
-        <select id="category"></select>
-      </div>
-      <div id="grid" class="grid products"></div>
-    </div>
-  </section>
+<section class="section container">
+  <h1>Catálogo de Produtos</h1>
+  <p>Encontre o brinde ideal para sua ação. Personalização sob medida e <strong>entrega em até 72h</strong>.</p>
 
-  <footer class="footer">
-    <div class="container foot">
-      <p>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</p>
-    </div>
-  </footer>
+  <div class="toolbar">
+    <input type="text" id="search" class="search" placeholder="Pesquisar produto...">
+    <select id="category"></select>
+  </div>
 
-  <script src="public/script.js"></script>
+  <div id="grid" class="grid products"></div>
+</section>
+
+<footer class="footer">
+  <div class="container foot">
+    <span>© <span id="year"></span> RS Brindes</span>
+    <a class="btn btn-light" href="orcamento.html">Solicitar Orçamento</a>
+  </div>
+</footer>
+
+<script src="public/script.js?v=7"></script>
 </body>
 </html>
