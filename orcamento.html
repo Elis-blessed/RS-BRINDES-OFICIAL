@@ -1,45 +1,100 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Solicitar Orçamento - RS Brindes</title>
-  <link rel="stylesheet" href="public/style.css"/>
+  <link rel="stylesheet" href="public/style.css">
 </head>
 <body>
 
-<header class="header gradient">
-  <nav class="nav container">
-    <div class="brand"><div class="logo">RS</div><span>RS BRINDES</span></div>
-    <div class="menu">
-      <a href="index.html">Home</a>
-      <a href="sobre.html">Sobre Nós</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="orcamento.html" class="active">Orçamento</a>
-      <a href="contato.html">Contato</a>
-      <a href="blog.html">Blog</a>
+  <!-- Cabeçalho -->
+  <header class="header gradient">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <div class="logo">RS</div>
+        <strong>RS Brindes</strong>
+      </a>
+      <nav class="menu">
+        <a href="index.html">Início</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="sobre.html">Sobre Nós</a>
+        <a href="orcamento.html" class="active">Orçamento</a>
+        <a href="blog.html">Blog</a>
+        <a href="contato.html">Contato</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<section class="section container">
-  <h1>Solicitar Orçamento</h1>
-  <form class="grid" style="max-width:520px;margin:auto;" onsubmit="alert('Obrigado! Entraremos em contato.'); return false;">
-    <input type="text" placeholder="Nome completo" required>
-    <input type="email" placeholder="E-mail" required>
-    <input type="tel" placeholder="Telefone/WhatsApp" required>
-    <textarea placeholder="Descreva o produto, quantidade e prazos desejados" rows="4" required></textarea>
-    <button type="submit" class="btn btn-primary">Enviar</button>
-  </form>
-</section>
+  <!-- Seção de título -->
+  <section class="section">
+    <div class="container">
+      <h1>Solicite seu Orçamento</h1>
+      <p>Preencha o formulário abaixo e receba uma proposta personalizada. <strong>Entregamos seus brindes em até 72 horas!</strong></p>
+    </div>
+  </section>
 
-<footer class="footer">
-  <div class="container foot">
-    <span>© <span id="year"></span> RS Brindes</span>
-    <span>Campinas/SP • WhatsApp: (19) 98185-9815 • rsbrindes2020@gmail.com</span>
-  </div>
-</footer>
+  <!-- Formulário -->
+  <section class="section">
+    <div class="container">
+      <form id="formOrcamento" class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+        <div>
+          <label for="nome">Nome *</label>
+          <input type="text" id="nome" name="nome" required class="search" placeholder="Seu nome completo">
+        </div>
+        <div>
+          <label for="email">E-mail *</label>
+          <input type="email" id="email" name="email" required class="search" placeholder="Seu melhor e-mail">
+        </div>
+        <div>
+          <label for="telefone">Telefone *</label>
+          <input type="tel" id="telefone" name="telefone" required class="search" placeholder="(00) 00000-0000">
+        </div>
+        <div>
+          <label for="produto">Produto de Interesse *</label>
+          <input type="text" id="produto" name="produto" required class="search" placeholder="Ex: Caneca personalizada">
+        </div>
+        <div>
+          <label for="quantidade">Quantidade *</label>
+          <input type="number" id="quantidade" name="quantidade" min="1" required class="search" placeholder="Ex: 50">
+        </div>
+        <div style="grid-column: 1 / -1;">
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" name="mensagem" rows="4" class="search" placeholder="Descreva detalhes adicionais (ex: cor, logo, personalização)"></textarea>
+        </div>
+        <div style="grid-column: 1 / -1; text-align: center;">
+          <button type="submit" class="btn btn-primary">Enviar Solicitação</button>
+        </div>
+      </form>
+    </div>
+  </section>
 
-<script src="public/script.js?v=3"></script>
+  <!-- Seção de informações adicionais -->
+  <section class="section gradient" style="color:#fff;">
+    <div class="container" style="text-align:center;">
+      <h2>Atendimento Rápido e Personalizado</h2>
+      <p>Assim que recebermos seu pedido, nossa equipe entrará em contato para finalizar os detalhes e garantir que tudo seja entregue <strong>em até 72 horas</strong>.</p>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container foot">
+      <div>© <span id="year"></span> RS Brindes - Todos os direitos reservados.</div>
+      <div>Entrega em até 72h 🚀</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simulação de envio de formulário
+    document.getElementById('formOrcamento').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('✅ Solicitação de orçamento enviada com sucesso! Entraremos em contato em breve.');
+      this.reset();
+    });
+  </script>
+
 </body>
 </html>
