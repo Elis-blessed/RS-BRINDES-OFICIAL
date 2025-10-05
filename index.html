@@ -1,64 +1,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>RS Brindes — Brindes Personalizados B2B</title>
-  <link rel="stylesheet" href="public/style.css"/>
-  <meta name="description" content="RS Brindes — 21 anos de mercado, fornecimento B2B de brindes personalizados. Canecas, copos, squeezes, mochilas, canetas e muito mais.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RS Brindes - Brindes Personalizados</title>
+  <link rel="stylesheet" href="public/style.css">
 </head>
 <body>
 
-<header class="header gradient">
-  <nav class="nav container">
-    <div class="brand"><div class="logo">RS</div><span>RS BRINDES</span></div>
-    <div class="menu">
-      <a href="index.html" class="active">Home</a>
-      <a href="sobre.html">Sobre Nós</a>
-      <a href="catalogo.html">Catálogo</a>
-      <a href="orcamento.html">Orçamento</a>
-      <a href="contato.html">Contato</a>
-      <a href="blog.html">Blog</a>
+  <!-- HEADER -->
+  <header class="header gradient">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">RS</div>
+        <strong>RS Brindes</strong>
+      </div>
+      <nav class="menu">
+        <a href="index.html" class="active">Início</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="orcamento.html">Orçamento</a>
+        <a href="blog.html">Blog</a>
+        <a href="contato.html">Contato</a>
+      </nav>
     </div>
-  </nav>
-</header>
+  </header>
 
-<section class="container">
-  <div class="hero gradient">
-    <h1>Brindes que geram lembranças e negócios</h1>
-    <p>21 anos de experiência. Agora como fornecedor B2B para sua empresa, com catálogos completos e prazos confiáveis.</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <a class="btn btn-primary" href="catalogo.html">Ver Catálogo</a>
-      <a class="btn btn-light" href="orcamento.html">Solicitar Orçamento</a>
+  <!-- SLIDER -->
+  <section class="slider">
+    <div class="slides">
+      <div class="slide">
+        <img src="public/img/destaque/slide1.jpg" alt="Banner Institucional RS Brindes">
+      </div>
+      <div class="slide">
+        <img src="public/img/destaque/slide2.jpg" alt="Catálogo RS Brindes">
+      </div>
+      <div class="slide">
+        <img src="public/img/destaque/slide3.jpg" alt="Produtos em Destaque RS Brindes">
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Slider simples (suba 3 imagens em public/img/destaque/) -->
-<section class="section container">
-  <div class="slider" id="slider">
-    <div class="slide active"><img src="public/img/destaque/slide1.jpg" alt="Destaque 1"></div>
-    <div class="slide"><img src="public/img/destaque/slide2.jpg" alt="Destaque 2"></div>
-    <div class="slide"><img src="public/img/destaque/slide3.jpg" alt="Destaque 3"></div>
-  </div>
-  <div class="slider-dots" id="slider-dots"></div>
-</section>
+  <!-- MISSÃO VISÃO VALORES -->
+  <section class="section light">
+    <div class="container">
+      <h2 class="center">Missão, Visão e Valores</h2>
+      <div class="mvv-grid">
+        <div>
+          <h3>Missão</h3>
+          <p>Oferecer soluções criativas e personalizadas em brindes, fortalecendo marcas com agilidade e excelência.</p>
+        </div>
+        <div>
+          <h3>Visão</h3>
+          <p>Ser referência nacional em brindes corporativos, reconhecida pela qualidade, rapidez e inovação.</p>
+        </div>
+        <div>
+          <h3>Valores</h3>
+          <ul>
+            <li>Compromisso com o cliente</li>
+            <li>Agilidade e qualidade</li>
+            <li>Inovação constante</li>
+            <li>Transparência e ética</li>
+            <li>Parcerias duradouras</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- Produtos em Destaque (lidos do products.json com featured:true) -->
-<section class="section">
-  <div class="container">
-    <h2 style="color:#0D1B2A;margin-bottom:16px">✨ Produtos em Destaque</h2>
-    <div id="featured-grid" class="grid products"></div>
-  </div>
-</section>
+  <!-- ENTREGA -->
+  <section class="section gradient center">
+    <div class="container entrega-bloco">
+      <h2>🚚 Entregamos seus brindes personalizados em até 72h!</h2>
+      <p>Produção ágil e eficiente em todo o Brasil.</p>
+      <a href="catalogo.html" class="btn btn-light">Ver Catálogo</a>
+    </div>
+  </section>
 
-<footer class="footer">
-  <div class="container foot">
-    <span>© <span id="year"></span> RS Brindes</span>
-    <span>Campinas/SP • WhatsApp: (19) 98185-9815 • rsbrindes2020@gmail.com</span>
-  </div>
-</footer>
+  <!-- CATEGORIAS DESTAQUE -->
+  <section class="section">
+    <div class="container">
+      <h2 class="center">Destaques do Catálogo</h2>
+      <div id="home-grid" class="grid products"></div>
+    </div>
+  </section>
 
-<script src="public/script.js?v=3"></script>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container foot">
+      <div>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</div>
+      <div>
+        <a href="https://wa.me/5519981859815" target="_blank">WhatsApp</a> |
+        <a href="mailto:rsbrindes2020@gmail.com">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+<script src="public/script.js"></script>
 </body>
 </html>
