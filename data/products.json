@@ -17,4 +17,40 @@
     "category": "Canecas",
     "image": "public/img/canecas/Caneca-Inox-470ml-18373-1707503245.jpg"
   }
+,
+{
+  "id": 1001,
+  "name": "Kit Canetas Marcadoras - 24 Cores",
+  "category": "Canetas",
+  "image": "public/img/canetas/Kit-Canetas-Marcadoras-Pontas-Duplas-24-Cores-25004d1-1758220688.jpg",
+  "featured": true
+},
+{
+  "id": 1002,
+  "name": "Agenda Diária 2026 Linho",
+  "category": "Agendas",
+  "image": "public/img/agendas/Agenda-Diaria-2026-Linho-23933-1753278350.jpg",
+  "featured": true
+},
+{
+  "id": 1003,
+  "name": "Leque de Plástico Amarelo",
+  "category": "Diversos",
+  "image": "public/img/diversos/Leque-de-Plastico-25007-1758222437.jpg",
+  "featured": true
+},
+{
+  "id": 1004,
+  "name": "Mochila Térmica Azul",
+  "category": "Bolsas Térmicas",
+  "image": "public/img/bolsastermicas/Mochila-Termica-Poliester-25053d5-1758218920.jpg",
+  "featured": true
+},
+{
+  "id": 1005,
+  "name": "Power Bank 10.000 mAh - Indução",
+  "category": "Acessórios para Celular",
+  "image": "public/img/acessorios/Power-Bank-10-000mAh-com-Carregamento-via-Inducao-ou-via-Cabo-PRETO-25097-1758228420.jpg",
+  "featured": true
+}
 ]
