@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contato - RS Brindes</title>
-  <link rel="stylesheet" href="public/style.css">
+  <link rel="stylesheet" href="public/style.css?v=7"/>
 </head>
 <body>
 
-  <!-- Header -->
-  <header class="header gradient">
-    <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="public/img/logo.png" alt="RS Brindes" class="logo">
-        <span>RS Brindes</span>
-      </a>
-      <nav class="menu">
-        <a href="index.html">Início</a>
-        <a href="sobre.html">Sobre</a>
-        <a href="catalogo.html">Catálogo</a>
-        <a href="blog.html">Blog</a>
-        <a href="contato.html" class="active">Contato</a>
-      </nav>
+<header class="header gradient">
+  <nav class="nav container">
+    <a class="brand" href="index.html">
+      <img src="public/img/logo/logo.png" alt="RS Brindes" class="logo-img"/>
+      <span class="brand-name">RS Brindes</span>
+    </a>
+    <div class="menu">
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="orcamento.html">Orçamento</a>
+      <a href="blog.html">Blog</a>
+      <a href="contato.html" class="active">Contato</a>
     </div>
-  </header>
+  </nav>
+</header>
 
-  <section class="section">
-    <div class="container">
-      <h1>Fale Conosco</h1>
-      <p>Entre em contato conosco para orçamentos e informações:</p>
+<section class="section container">
+  <h1>Entre em Contato</h1>
+  <div class="grid contact-grid">
+    <form class="card card-pad" onsubmit="event.preventDefault(); alert('Mensagem enviada!'); this.reset();">
+      <label>Nome</label>
+      <input type="text" required class="input">
+      <label>E-mail</label>
+      <input type="email" required class="input">
+      <label>Mensagem</label>
+      <textarea rows="5" required class="input"></textarea>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
 
-      <form class="card card-pad" action="#" method="post">
-        <label>Nome</label>
-        <input type="text" required>
-
-        <label>Email</label>
-        <input type="email" required>
-
-        <label>Mensagem</label>
-        <textarea rows="5" required></textarea>
-
-        <button type="submit" class="btn btn-primary">Enviar</button>
-      </form>
+    <div class="card card-pad">
+      <h2 class="title">Informações</h2>
+      <p><strong>Endereço:</strong> Rua João Rodrigues Serra, 295 - Jardim Eulina, Campinas - SP</p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/5519981859815" target="_blank">(19) 98185-9815</a></p>
+      <p><strong>E-mail:</strong> <a href="mailto:rsbrindes2020@gmail.com">rsbrindes2020@gmail.com</a></p>
+      <p>🚚 Entrega em até <strong>72 horas</strong> em todo o Brasil!</p>
+      <iframe 
+        src="https://www.google.com/maps?q=Rua%20Jo%C3%A3o%20Rodrigues%20Serra%2C%20295%20-%20Jardim%20Eulina%2C%20Campinas%20-%20SP&output=embed" 
+        width="100%" height="220" style="border:0; border-radius:12px; margin-top:8px;" allowfullscreen="" loading="lazy"></iframe>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <div class="container foot">
-      <p>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</p>
-    </div>
-  </footer>
+<footer class="footer">
+  <div class="container foot">
+    <span>© <span id="year"></span> RS Brindes</span>
+    <a class="btn btn-light" href="orcamento.html">Solicitar Orçamento</a>
+  </div>
+</footer>
 
+<script src="public/script.js?v=7"></script>
 </body>
 </html>
