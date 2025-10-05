@@ -8,76 +8,48 @@
 </head>
 <body>
 
-  <!-- Cabeçalho -->
+  <!-- Header -->
   <header class="header gradient">
     <div class="container nav">
       <a href="index.html" class="brand">
-        <div class="logo">RS</div>
-        <strong>RS Brindes</strong>
+        <img src="public/img/logo.png" alt="RS Brindes" class="logo">
+        <span>RS Brindes</span>
       </a>
       <nav class="menu">
         <a href="index.html">Início</a>
+        <a href="sobre.html">Sobre</a>
         <a href="catalogo.html">Catálogo</a>
-        <a href="sobre.html">Sobre Nós</a>
-        <a href="orcamento.html">Orçamento</a>
         <a href="blog.html">Blog</a>
         <a href="contato.html" class="active">Contato</a>
       </nav>
     </div>
   </header>
 
-  <!-- Seção Contato -->
   <section class="section">
     <div class="container">
-      <h1>Entre em Contato</h1>
-      <p>Estamos prontos para atender você com agilidade e qualidade. Entre em contato para orçamentos, dúvidas ou sugestões.</p>
+      <h1>Fale Conosco</h1>
+      <p>Entre em contato conosco para orçamentos e informações:</p>
 
-      <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); margin-top: 24px; gap: 24px;">
-        
-        <!-- Formulário -->
-        <form class="card card-pad" onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!'); this.reset();">
-          <label>Nome</label>
-          <input type="text" required placeholder="Seu nome" style="margin-bottom:8px; width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;">
-          
-          <label>E-mail</label>
-          <input type="email" required placeholder="Seu e-mail" style="margin-bottom:8px; width:100%; padding:10px; border:1px solid #ccc; border-radius:8px;">
-          
-          <label>Mensagem</label>
-          <textarea required placeholder="Digite sua mensagem" style="margin-bottom:8px; width:100%; padding:10px; border:1px solid #ccc; border-radius:8px; min-height:100px;"></textarea>
-          
-          <button type="submit" class="btn btn-primary" style="width:100%;">Enviar</button>
-        </form>
+      <form class="card card-pad" action="#" method="post">
+        <label>Nome</label>
+        <input type="text" required>
 
-        <!-- Informações -->
-        <div class="card card-pad">
-          <h2 class="title">Informações de Contato</h2>
-          <p><strong>Endereço:</strong> Rua João Rodrigues Serra, 295 - Jardim Eulina, Campinas - SP</p>
-          <p><strong>WhatsApp:</strong> <a href="https://wa.me/5519981859815" target="_blank">+55 19 98185-9815</a></p>
-          <p><strong>E-mail:</strong> <a href="mailto:rsbrindes2020@gmail.com">rsbrindes2020@gmail.com</a></p>
-          <p>🏃‍♂️ Entregamos em até <strong>72 horas</strong> em todo o Brasil!</p>
+        <label>Email</label>
+        <input type="email" required>
 
-          <!-- Mapa -->
-          <iframe 
-            src="https://www.google.com/maps?q=Rua%20Jo%C3%A3o%20Rodrigues%20Serra%2C%20295%20-%20Jardim%20Eulina%2C%20Campinas%20-%20SP&output=embed" 
-            width="100%" height="200" style="border:0; margin-top:12px; border-radius:8px;" allowfullscreen="" loading="lazy">
-          </iframe>
-        </div>
+        <label>Mensagem</label>
+        <textarea rows="5" required></textarea>
 
-      </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
     </div>
   </section>
 
-  <!-- Rodapé -->
   <footer class="footer">
     <div class="container foot">
-      <div>© <span id="year"></span> RS Brindes - Todos os direitos reservados.</div>
-      <div>Entrega em até 72h 🚀</div>
+      <p>© <span id="year"></span> RS Brindes — Todos os direitos reservados.</p>
     </div>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 
 </body>
 </html>
