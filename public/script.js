@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Home: Produtos em destaque
   const featuredGrid = document.getElementById('featured-grid');
   if (featuredGrid) {
-    fetch('data/products.json?_v=9')
+    fetch('data/products.json?_v=10')
       .then(r => r.json())
       .then(items => {
         const featured = items.filter(p => p.featured === true);
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (grid && search && category) {
     let state = { items: [], q:'', cat:'Todas' };
 
-    fetch('data/products.json?_v=9')
+    fetch('data/products.json?_v=10')
       .then(r => r.json())
       .then(items => {
         state.items = items;
