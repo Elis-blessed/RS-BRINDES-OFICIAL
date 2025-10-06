@@ -1,102 +1,98 @@
-document.addEventListener('DOMContentLoaded', () => {
-  // Ano no rodapé
-  const yearEl = document.getElementById('year');
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+:root{
+  --navy:#0D1B2A; --navy2:#1A2E45;
+  --orange:#F97316; --orange2:#FF8A3D;
+  --gray:#6B7280; --light:#F3F4F6;
+  --text:#111827; --white:#fff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--text);background:#fff;line-height:1.5}
+a{color:inherit;text-decoration:none}
+.container{max-width:1120px;margin:0 auto;padding:0 16px}
 
-  // Slider (auto + dots)
-  const slides = Array.from(document.querySelectorAll('.slide'));
-  const dotsWrap = document.getElementById('slider-dots');
-  if (slides.length && dotsWrap) {
-    slides.forEach((_,i)=>{
-      const b = document.createElement('button');
-      if (i===0) b.classList.add('active');
-      b.addEventListener('click', ()=> go(i));
-      dotsWrap.appendChild(b);
-    });
-    let idx = 0;
-    function go(i){
-      slides[idx].classList.remove('active');
-      dotsWrap.children[idx].classList.remove('active');
-      idx = i;
-      slides[idx].classList.add('active');
-      dotsWrap.children[idx].classList.add('active');
-    }
-    setInterval(()=> go((idx+1)%slides.length), 4000);
-  }
+/* Header */
+.header{position:sticky;top:0;z-index:50;backdrop-filter:blur(6px)}
+.gradient{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 28%,var(--orange) 65%,var(--orange2) 100%)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:80px;color:#fff;border-bottom:1px solid rgba(255,255,255,.15)}
+.brand{display:flex;align-items:center}
+.menu{display:flex;gap:10px;align-items:center}
+.menu a{padding:8px 12px;border-radius:10px;color:#fff}
+.menu a:hover{color:var(--orange2)}
+.menu a.active{background:rgba(255,255,255,.12)}
 
-  // Home: Produtos em destaque
-  const featuredGrid = document.getElementById('featured-grid');
-  if (featuredGrid) {
-    fetch('data/products.json?_v=7')
-      .then(r => r.json())
-      .then(items => {
-        const featured = items.filter(p => p.featured === true);
-        const toRender = featured.length ? featured : items.slice(0, 8);
-        featuredGrid.innerHTML = toRender.map(p => cardHTML(p)).join('');
-      })
-      .catch(() => {
-        featuredGrid.innerHTML = '<div class="card card-pad" style="grid-column:1/-1;text-align:center">Não foi possível carregar os destaques.</div>';
-      });
-  }
+/* Logo — sem círculo/pastilha, maior */
+.logo-img{
+  height:56px;width:auto;display:block;border-radius:0;object-fit:contain;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.45));
+}
+.brand-name{display:none !important;} /* garante que qualquer texto extra não apareça */
 
-  // Catálogo
-  const grid = document.getElementById('grid');
-  const search = document.getElementById('search');
-  const category = document.getElementById('category');
+/* Botões */
+.btn{padding:10px 16px;border-radius:12px;border:1px solid transparent;cursor:pointer;font-weight:600;display:inline-block}
+.btn-primary{background:var(--orange);color:#fff}
+.btn-light{background:#fff;color:var(--navy);border-color:#e5e7eb}
 
-  if (grid && search && category) {
-    let state = { items: [], q:'', cat:'Todas' };
+/* Hero */
+.hero{color:#fff;border-radius:24px;margin:24px 0;padding:24px}
+.hero-sub{opacity:.95;margin:.25rem 0 .5rem}
+.entrega-msg{ color: var(--navy); font-weight:700; } /* padrão escuro */
+.hero .entrega-msg{ color:#fff; } /* no banner fica branca */
+.hero-ctas{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 
-    fetch('data/products.json?_v=7')
-      .then(r => r.json())
-      .then(items => {
-        state.items = items;
-        buildCategories(items);
-        const pre = new URLSearchParams(location.search).get('cat');
-        if (pre) state.cat = pre;
-        category.value = state.cat;
-        apply();
-      });
+/* Layouts */
+.section{padding:32px 0}
+.section-title{color:var(--navy);margin:0 0 12px 0}
+.card{border:1px solid #e5e7eb;border-radius:20px;overflow:hidden;background:#fff}
+.card-pad{padding:20px}
+.grid{display:grid;gap:24px}
+.products{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
+.features{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
 
-    search.addEventListener('input', () => { state.q = search.value.toLowerCase(); apply(); });
-    category.addEventListener('change', () => { state.cat = category.value; apply(); });
+.card img.product{width:100%;height:180px;object-fit:cover;display:block}
+.card .title{font-weight:600;font-size:1rem}
+.card .cat{font-size:.85rem;color:#6b7280}
 
-    function buildCategories(items){
-      const cats = Array.from(new Set(items.map(i => i.category))).sort();
-      category.innerHTML = '';
-      category.append(new Option('Todas','Todas'));
-      cats.forEach(c => category.append(new Option(c,c)));
-    }
+.toolbar{display:flex;gap:8px;align-items:center;margin:12px 0 16px;flex-wrap:wrap}
+.search{width:100%;max-width:320px;padding:10px 12px;border:1px solid #e5e7eb;border-radius:12px}
 
-    function apply(){
-      const filtered = state.items.filter(p =>
-        (state.cat === 'Todas' || p.category === state.cat) &&
-        (state.q === '' || (p.name||'').toLowerCase().includes(state.q))
-      );
-      if (!filtered.length) {
-        grid.innerHTML = '<div class="card card-pad" style="grid-column:1/-1;text-align:center">Nenhum item encontrado</div>';
-        return;
-      }
-      grid.innerHTML = filtered.map(p => cardHTML(p)).join('');
-    }
-  }
+.form-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;max-width:720px;margin:0 auto}
+.input{padding:10px;border:1px solid #e5e7eb;border-radius:10px;width:100%}
 
-  // Card template reutilizável
-  function cardHTML(p){
-    const safeImg = p.image || '';
-    const safeName = p.name || 'Produto';
-    const safeCat = p.category || '';
-    return `
-      <div class="card">
-        <img class="product" src="${safeImg}" alt="${safeName}" onerror="this.style.display='none'"/>
-        <div class="card-pad">
-          <div class="title">${safeName}</div>
-          <div class="cat">${safeCat}</div>
-          <div style="margin-top:8px">
-            <a class="btn btn-primary" href="orcamento.html">Solicitar Orçamento</a>
-          </div>
-        </div>
-      </div>
-    `;
-  }
-});
+.contact-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+
+.footer{background:var(--navy);color:#fff;margin-top:32px}
+.foot{display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:12px;flex-wrap:wrap}
+
+/* Slider */
+.slider{position:relative;overflow:hidden;border-radius:20px}
+.slide{display:none; position:relative;}
+.slide.active{display:block}
+.slide img{width:100%;height:360px;object-fit:cover;object-position:center;display:block}
+.slider-dots{display:flex;gap:6px;justify-content:center;margin-top:8px}
+.slider-dots button{width:10px;height:10px;border-radius:999px;border:0;background:#e5e7eb;cursor:pointer}
+.slider-dots button.active{background:var(--orange)}
+
+/* Legendas do slider (controla tamanho do texto, inclusive no slide 3) */
+.slide .caption{
+  position:absolute; left:0; right:0; bottom:0;
+  padding:18px 20px;
+  background: linear-gradient( to top, rgba(0,0,0,.55), rgba(0,0,0,.0) );
+  color:#fff;
+}
+.slide .caption h2{
+  margin:0 0 4px 0; font-size:28px; line-height:1.2; font-weight:800;
+}
+.slide .caption p{
+  margin:0; font-size:18px; line-height:1.35; opacity:.95;
+}
+
+/* Responsivo */
+@media (max-width: 640px){
+  .slide img{height:260px}
+  .slide .caption{padding:12px 14px}
+  .slide .caption h2{font-size:20px}
+  .slide .caption p{font-size:14px}
+}
+
+/* Compatibilidade: neutraliza qualquer classe .logo antiga */
+.logo{all:unset;}
