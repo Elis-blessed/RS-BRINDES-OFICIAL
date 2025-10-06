@@ -75,3 +75,7 @@ ul.vals{padding-left:18px;margin:0}
 
 /* Compatibilidade: neutraliza qualquer classe .logo antiga */
 .logo{all:unset;}
+/* Ajuste de cor do aviso de 72h */
+.entrega-msg{ color: var(--navy); font-weight:700; }
+.hero .entrega-msg{ color: #fff; } /* no banner (hero) continua branca */
+
