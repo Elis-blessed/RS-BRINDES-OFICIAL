@@ -3,26 +3,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Slider (auto + dots)
-  const slides = Array.from(document.querySelectorAll('.slide'));
+    // === Slider robusto ===
+(function initSlider(){
+  const slider = document.getElementById('slider');
   const dotsWrap = document.getElementById('slider-dots');
-  if (slides.length && dotsWrap) {
-    slides.forEach((_,i)=>{
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll('.slide'));
+  if (!slides.length) return;
+
+  // Garante que só um está ativo ao iniciar
+  slides.forEach(s => s.classList.remove('active'));
+  slides[0].classList.add('active');
+
+  let idx = 0, timer = null;
+
+  function go(i){
+    slides[idx].classList.remove('active');
+    idx = (i + slides.length) % slides.length;
+    slides[idx].classList.add('active');
+    if (dotsWrap) {
+      Array.from(dotsWrap.children).forEach((d,k)=>d.classList.toggle('active', k===idx));
+    }
+  }
+
+  if (dotsWrap) {
+    dotsWrap.innerHTML = '';
+    slides.forEach((_, i) => {
       const b = document.createElement('button');
-      if (i===0) b.classList.add('active');
-      b.addEventListener('click', ()=> go(i));
+      if (i === 0) b.classList.add('active');
+      b.addEventListener('click', () => { go(i); reset(); });
       dotsWrap.appendChild(b);
     });
-    let idx = 0;
-    function go(i){
-      slides[idx].classList.remove('active');
-      dotsWrap.children[idx].classList.remove('active');
-      idx = i;
-      slides[idx].classList.add('active');
-      dotsWrap.children[idx].classList.add('active');
-    }
-    setInterval(()=> go((idx+1)%slides.length), 4000);
   }
+
+  function reset(){
+    if (timer) clearInterval(timer);
+    timer = setInterval(() => go(idx + 1), 4000);
+  }
+
+  reset();
+})();
 
   // Home: Produtos em destaque
   const featuredGrid = document.getElementById('featured-grid');
