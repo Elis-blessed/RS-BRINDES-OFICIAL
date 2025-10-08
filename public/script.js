@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-    // === Slider robusto ===
+    // === Slider robusto (funciona com 2+ slides) ===
 (function initSlider(){
   const slider = document.getElementById('slider');
   const dotsWrap = document.getElementById('slider-dots');
@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const slides = Array.from(slider.querySelectorAll('.slide'));
   if (!slides.length) return;
 
-  // Garante que só um está ativo ao iniciar
+  // garante apenas um ativo
   slides.forEach(s => s.classList.remove('active'));
   slides[0].classList.add('active');
 
